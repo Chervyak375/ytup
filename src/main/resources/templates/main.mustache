@@ -1,0 +1,27 @@
+<html>
+
+<body>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+    <div>
+        <form method="post">
+            <input type="text" name="nickname" placeholder="Введите никнэйм" />
+            <input type="number" name="balance" placeholder="Введите баланс" />
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </div>
+    <div>{{some}}</div>
+    <div>Список пользователей</div>
+    {{#users}}
+    <div>
+        <b>{{nickname}}</b>
+        <span>{{balance}}</span>
+    </div>
+    {{/users}}
+</body>
+</html>
